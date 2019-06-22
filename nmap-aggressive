@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Title: Target Recon
+# Desc:
+# Parameters: 
+#       1) Target Ip
+#       2) Target Name in Text
+#	3) Outfile Path
+####
+
+# OUTFILE
+OUTFILE_PATH="$3"
+OUTFILE="$3"+"/"+"$2"+"-Aggressive-Nmap.txt"
+
+# More Detailed Target Scan Using Aggressive and Script Vulnerabilities flags a$
+echo 
+echo "Now Aggresively Scanning $1....."
+echo
+nmap -T4 -A -sV -v $1 > $OUTFILE && printf "Scan Complete....\n----------------------\nOutfile Contents: \n\n";
+cat $OUTFILE
+
+
+
+

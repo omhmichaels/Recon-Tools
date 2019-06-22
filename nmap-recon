@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Title: Target Recon
+# Desc:
+# Parameters: 
+#	1) Target Ip
+#	2) Name of Target
+#
+####
+
+# OUTFILES
+OUTFILE_PATH="$3"
+BASIC_OUTFILE = "$2_Ports.txt"
+AGGRESSIVE_OUTFILE = "$2_Script_Scan.txt"
+
+
+
+### Target Recon
+echo "Now Scanning $1 ....."
+echo
+/dev/null 1<&2 nmap $1 > BASIC_OUTFILE  && cat BASIC_OUTFILE; 
+
+# Aggresive scan
+echo 
+echo "Now Aggresively Scanning $1....."
+echo
+nmap -T4 -A -sV -v $1 > AGGRESSIVE_OUTFILE && cat AGGRESSIVE_OUTFILE;
+
+

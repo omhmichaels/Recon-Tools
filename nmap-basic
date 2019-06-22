@@ -1,0 +1,20 @@
+#!/bin/bash
+# Title:
+# Desc:
+# Params: 
+# 	1) Target ip
+# 	2) Name of target
+#
+#####
+
+# OUTFILE
+OUTFILE_PATH="$3"
+OUTFILE="$3"+"/"+"$2"+"-Ports.txt"
+
+### Target Recon
+echo "Now Scanning $1 ....."
+echo
+nmap $1 > BASIC_OUTFILE  &&  printf "\nScan Complete....\n\nScan Results: \n";
+cat BASIC_OUTFILE; 
+
+
